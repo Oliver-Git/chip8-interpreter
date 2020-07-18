@@ -29,9 +29,9 @@ int initialise_chip_8(struct Chip8 *chip, char *rom_path)
 	/*
 	 * Clear memory, V registers, display, and stack.
 	 * 
-	 * memset is not used, because calls to memset can be removed
-	 * by the compiler. I also did not use memset_s, because it was giving
-	 * me linker errors and I was unable to find a solution.
+	 * memset is not used because calls to memset can be removed
+	 * by the compiler. memset_s is not used because it was causing
+	 * linker errors and I was unable to find a solution.
 	 * 
 	 * Yes, I was defining __STDC_WANT_LIB_EXT1__ to be 1 before including
 	 * string.h
