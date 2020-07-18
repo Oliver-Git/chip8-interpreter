@@ -3,7 +3,7 @@ A Chip-8 interpreter written in C, for my own learning purposes.
 
 ## Dependencies
 
-This interpreter uses SDL2 for graphics, (and eventually) sound and I/O.
+This interpreter uses SDL2 for graphics, (and eventually) sound and keyboard input.
 
 ## Cross-Platform Support
 
