@@ -7,7 +7,7 @@ This interpreter uses SDL2 for graphics, (and eventually) sound and I/O.
 
 ## Cross-Platform Support
 
-Tested and working on Windows 10 Home version 2004, as well as Debian 10.
+Tested and working on Windows 10 Home version 2004, as well as Debian 10.<br/>
 Currently I have no plans to support macOS, due to lack of testing hardware.
 
 ## License
