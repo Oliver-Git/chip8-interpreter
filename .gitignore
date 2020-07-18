@@ -1,0 +1,19 @@
+# VS Code
+.vscode/
+/*.code-workspace
+
+# Build files
+build/
+build-linux/
+
+# Other
+/a.out
+/chip8.c
+/coding_style.txt
+/TODO.txt
+/incomplete.txt
+
+# ROMs are not included for copyright reasons.
+# I'm not sure if any of the ROMs that I've tested fall under copyright,
+# but I'd rather not risk putting them on GitHub.
+roms/*
