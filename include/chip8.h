@@ -27,8 +27,8 @@ struct Chip8 {
 	bool draw_flag; // If true, the display should be drawn.
 };
 
-int initialise_chip_8(struct Chip8 *chip, char *rom_path);
-void execute_opcode(struct Chip8 *chip);
-void update_timers(struct Chip8 *chip);
+int initialise_chip_8(struct Chip8 *chip8, char *rom_path);
+void execute_opcode(struct Chip8 *chip8);
+void update_timers(struct Chip8 *chip8);
 
 #endif // CHIP8_H_

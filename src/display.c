@@ -15,7 +15,7 @@ SDL_Window *window = NULL;
 SDL_Surface *window_surface = NULL;
 
 // Initialise SDL, create the window, get the window surface.
-int set_up_sdl(struct Chip8  *chip)
+int set_up_sdl(struct Chip8  *chip8)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL failed to initialise. SDL_Error: %s\n", SDL_GetError());
@@ -54,7 +54,7 @@ void quit_sdl()
 	SDL_Quit();
 }
 
-void draw(struct Chip8 *chip)
+void draw(struct Chip8 *chip8)
 {
 	SDL_Rect pixel;
 	pixel.w = DISPLAY_SIZE_MULTIPLIER;
@@ -68,8 +68,8 @@ void draw(struct Chip8 *chip)
 			pixel.y = i * DISPLAY_SIZE_MULTIPLIER;
 			
 			//  == 1 is present because for some reason there are
-			// are always a few 8s in chip->display ... why??
-			if (chip->display[j + i * DISPLAY_WIDTH] == 1) {
+			// are always a few 8s in chip8->display ... why??
+			if (chip8->display[j + i * DISPLAY_WIDTH] == 1) {
 				SDL_FillRect(window_surface, &pixel, WHITE);
 			}
 		}
