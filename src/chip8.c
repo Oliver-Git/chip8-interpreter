@@ -61,7 +61,7 @@ int initialise_chip_8(struct Chip8 *chip, char *rom_path)
 	chip->draw_flag = false;
 
 	// Load font into memory.
-	for (int i = 0; i < sizeof(font); i++) {
+	for (size_t i = 0; i < sizeof(font); i++) {
 		chip->memory[i] = font[i];
 	}
 
