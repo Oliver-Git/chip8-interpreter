@@ -13,17 +13,17 @@
 
 int main(int argc, char *argv[])
 {
-	struct Chip8 chip;
-	struct Chip8 *chip_ptr = &chip;
+	struct Chip8 chip8;
+	struct Chip8 *chip8_ptr = &chip8;
 
 	// Initialise interpreter.
-	if (initialise_chip_8(chip_ptr, "../roms/IBM Logo.ch8") == -1) {
+	if (initialise_chip_8(chip8_ptr, "roms/IBM Logo.ch8") == -1) {
 		quit_sdl();
 		return -1;
 	}
 
 	// Initialise SDL, create the window, get the window surface.
-	if (set_up_sdl(chip_ptr) == -1) {
+	if (set_up_sdl(chip8_ptr) == -1) {
 		quit_sdl();
 		return -1;
 	}
@@ -72,16 +72,16 @@ int main(int argc, char *argv[])
 		// happens to be the rate at which the timers decrement.
 		// The calculation was: 500Hz / 60Hz = 8.33...
 		for (int cycles = 0; cycles < 8; cycles++) {
-			execute_opcode(chip_ptr);
+			execute_opcode(chip8_ptr);
 			// printf("%x ", chip.opcode);
 		}
 
-		if (chip_ptr->draw_flag) {
-			draw(chip_ptr);
-			chip_ptr->draw_flag = false;
+		if (chip8_ptr->draw_flag) {
+			draw(chip8_ptr);
+			chip8_ptr->draw_flag = false;
 		}
 
-		update_timers(chip_ptr);
+		update_timers(chip8_ptr);
 
 		// Sleep for 1/500 seconds.
 		#ifdef WINDOWS
