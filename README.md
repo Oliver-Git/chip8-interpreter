@@ -5,7 +5,7 @@ SDL2 is used for graphics, and will eventually be used for sound and keyboard in
 ## Cross-Platform Support
 
 Working on Debian 10 (Buster).<br/>
-Working on Windows 10 Home version 2004, using MSYS2 with the following packages:<br/>
+Working on Windows 10 Home version 2004, using MSYS2 with the following packages:
 * ``mingw-w64-x86_64-clang`` version 10.0.0-3<br/>
 * ``mingw-w64-x86_64-pkg-config`` version 0.29.2-1<br/>
 * ``mingw-w64-x86_64-SDL2`` version 2.0.12-4<br/>
