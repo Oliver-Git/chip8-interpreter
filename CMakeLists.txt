@@ -23,12 +23,12 @@ if (WIN32)
 	)
 endif (WIN32)
 
-# Find SDL2 installation. This will only work if FindPkgConfig is available.
-# To build on Windows, an environment that provides FindPkgConfig may be required,
+# Find SDL2 installation. This will only work if pkg-config is installed.
+# To build on Windows, an environment that provides pkg-config will be required,
 # such as MSYS2 or Cygwin.
 
-# I originally tried to use someone else's FindSDL2.cmake module,
-# however it unfortunately did not work on Windows.
+# I originally tried to use someone else's cross-platform FindSDL2.cmake module
+# for building on Windows, however it didn't work on my computer.
 
 include(FindPkgConfig)
 
