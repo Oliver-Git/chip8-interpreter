@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../include//chip8.h"
 
-int initialise_chip8_8(struct Chip8 *chip8, char *rom_path)
+int initialise_chip_8(struct Chip8 *chip8, char *rom_path)
 {
 	// Start of most Chip-8 programs.
 	const int PROGRAM_START = 0x200;
