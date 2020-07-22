@@ -47,6 +47,7 @@ int set_up_sdl(struct Chip8  *chip8)
 void quit_sdl()
 {
 	SDL_DestroyWindow(window);
+	SDL_FreeSurface(window_surface);
 
 	window = NULL;
 	window_surface = NULL;
