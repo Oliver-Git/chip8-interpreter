@@ -29,12 +29,9 @@ int initialise_chip_8(struct Chip8 *chip8, char *rom_path)
 	/*
 	 * Clear memory, V registers, display, and stack.
 	 * 
-	 * memset is not used because calls to memset can be removed
-	 * by the compiler. memset_s is not used because it was causing
-	 * linker errors and I was unable to find a solution.
-	 * 
-	 * Yes, I was defining __STDC_WANT_LIB_EXT1__ to be 1 before including
-	 * string.h
+	 * memset is not used because calls to memset can be removed by 
+	 * the compiler. memset_s is not used due to poor support for the
+	 * 'safe' functions from the ISO C Committee's TR 24731-1.
 	 */
 	for (size_t i = 0; i < sizeof(chip8->memory); i++) {
 		*(volatile uint8_t *)(chip8->memory + i) = 0;
@@ -105,7 +102,7 @@ void execute_opcode(struct Chip8 *chip8)
 	case 0x0000:
 		switch (chip8->opcode & 0x000F) {
 		case 0x0000: // 00E0: Clear the display.
-			for (int i = 0; i < sizeof(chip8->display); i++) {
+			for (size_t i = 0; i < sizeof(chip8->display); i++) {
 				*(volatile unsigned char *)(chip8->display + i) = 0;
 			}
 
@@ -114,6 +111,10 @@ void execute_opcode(struct Chip8 *chip8)
 			break;
 
 		case 0x000E: // 00EE: Return from a subroutine.
+			break;
+
+		default:
+			printf("Unknown opcode: %x\n", chip8->opcode);
 			break;
 		}
 		break;
@@ -182,6 +183,10 @@ void execute_opcode(struct Chip8 *chip8)
 			// Unfinished.
 			chip8->PC += 2;
 			break;
+
+		default:
+			printf("Unknown opcode: %x\n", chip8->opcode);
+			break;
 		}
 		break;
 
@@ -196,6 +201,10 @@ void execute_opcode(struct Chip8 *chip8)
 		// Unfinished.
 		chip8->PC += 2;
 		chip8->draw_flag = true;
+		break;
+
+	default:
+		printf("Unknown opcode: %x\n", chip8->opcode);
 		break;
 	}
 }
