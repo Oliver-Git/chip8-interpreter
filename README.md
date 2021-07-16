@@ -1,6 +1,6 @@
 # chip8-interpreter
 A Chip-8 interpreter written in C, for my own learning purposes.<br/>
-SDL2 is used for graphics, and will eventually be used for sound and keyboard input.
+SDL2 is used for graphics, and will eventually be used for sound and keyboard input.<br/>
 Now maintained on GitLab.
 
 ## Cross-Platform Support
